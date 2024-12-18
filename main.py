@@ -7,7 +7,7 @@ class Vedirect:
 
     def __init__(self, serialport, timeout):
         self.serialport = serialport
-        self.ser = serial.Serial(serialport, 19200, timeout=timeout)
+#        self.ser = serial.Serial(serialport, 19200, timeout=timeout)
         self.header1 = ('\r')
         self.header2 = ('\n')
         self.hexmarker = (':')
