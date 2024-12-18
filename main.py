@@ -42,7 +42,7 @@ class Vedirect:
                 else:
                     self.state = self.IN_VALUE
             else:
-                self.key += chr(byte)
+                self.key += byte
             return None
         elif self.state == self.IN_VALUE:
             self.bytes_sum += byte
@@ -52,7 +52,7 @@ class Vedirect:
                 self.key = '';
                 self.value = '';
             else:
-                self.value += chr(byte)
+                self.value += byte
             return None
         elif self.state == self.IN_CHECKSUM:
             self.bytes_sum += byte
@@ -84,11 +84,9 @@ class Vedirect:
         while True:
             data = self.ser.read()
             for byte in data:
+                def onIn_background():
+                    pass
+                control.in_background(onIn_background)
                 packet = self.input(byte)
                 if (packet != None):
                     callbackFunction(packet)
-
-
-
-
-    
